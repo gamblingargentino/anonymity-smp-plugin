@@ -1,0 +1,8 @@
+target/
+.idea/
+*.iml
+out/
+.DS_Store
+*.db
+*.log
+plugins/AnonymousHavoc/
