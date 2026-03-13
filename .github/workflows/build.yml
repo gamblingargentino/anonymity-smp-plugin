@@ -1,0 +1,25 @@
+name: Havoc SMP Compiler
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Grabbing Code
+        uses: actions/checkout@v4
+
+      - name: Setting up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Compiling Jar
+        run: mvn package
+
+      - name: Sending Jar to Download Link
+        uses: actions/upload-artifact@v4
+        with:
+          name: AnonymitySMPplugin  # You can name this whatever
+          path: target/*.jar
